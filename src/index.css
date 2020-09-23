@@ -1,0 +1,16 @@
+body {
+  background-image: url("./assets/img/background-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  font-family: 'eras-font';
+  letter-spacing: 2px;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
