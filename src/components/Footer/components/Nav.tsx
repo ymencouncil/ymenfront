@@ -48,7 +48,7 @@ const Nav: React.FC = () => {
         </StyledLinkIcon>
         <StyledLinkIcon
           target="_blank"
-          href="https://twitter.com/FinanceYield/"
+          href="https://twitter.com/ymenfinance/"
         >
           <img width="35px" src={twitter} />
         </StyledLinkIcon>
