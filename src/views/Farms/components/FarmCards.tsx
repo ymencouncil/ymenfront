@@ -1,5 +1,4 @@
 import BigNumber from 'bignumber.js'
-import { multiply } from 'numeral'
 import React, { useEffect, useState } from 'react'
 import Countdown, { CountdownRenderProps } from 'react-countdown'
 import styled, { keyframes } from 'styled-components'
@@ -22,7 +21,8 @@ import {
   getMasterChefContract,
 } from '../../../sushi/utils'
 import { bnToDec } from '../../../utils'
-
+import icon8x from '../../../assets/img/icon8x.png'
+import icon4x from '../../../assets/img/icon4x.png'
 interface FarmWithStakedValue extends Farm, StakedValue {
   apy: BigNumber
 }
@@ -225,8 +225,16 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
         <CardContent>
           <StyledContent>
             <CardIcon>{farm.icon}</CardIcon>
-            {farm.tokenSymbol === 'YMEN' && <MultiPlier />}
-            {farm.tokenSymbol === 'MUTANT' && <MultiPlier />}
+            {farm.tokenSymbol === 'YMEN' && (
+              <MultiPlier>
+                <img width="100%" src={icon4x} />
+              </MultiPlier>
+            )}
+            {farm.tokenSymbol === 'MUTANT' && (
+              <MultiPlier>
+                <img width="100%" src={icon8x} />
+              </MultiPlier>
+            )}
             <StyledTitle>{farm.name}</StyledTitle>
             <StyledDetails>
               <StyledDetail>Deposit {farm.lpToken.toUpperCase()}</StyledDetail>
@@ -315,15 +323,12 @@ const ButtonContainer = styled.div`
   width: 100%;
 `
 const MultiPlier = styled.div`
-  box-shadow: inset 0px 0px 20px 4px #31bff5;
-  background-color: #5b658e;
-  width: 20%;
+  background-color: transparent;
+  width: 35%;
   position: absolute;
-  height: 18%;
-  margin-top: -4%;
-  margin-right: -4%;
+  margin-top: -12%;
+  margin-right: -12%;
   right: 0;
-  background-color: white;
   top: 0;
   border-radius: 100%;
 `

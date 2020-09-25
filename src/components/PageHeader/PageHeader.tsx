@@ -45,7 +45,8 @@ const StyledIcon = styled.div`
 `
 
 const StyledTitle = styled.h1`
-  font-family: 'eras-font';
+  font-family: 'eras-book-font';
+  /* font-family: "eras-font" */
   color: ${(props) => props.theme.color.grey[1000]};
   font-size: 36px;
   font-weight: 700;

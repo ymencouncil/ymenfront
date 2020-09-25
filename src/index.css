@@ -3,14 +3,16 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
-  font-family: 'eras-font';
+  /* font-family: 'eras-font';*/
+  font-family: "eras-book-font";
   letter-spacing: 2px;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-size: inherit;
+  background-color: #09193a;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: "eras-book-font", "eras-font";
 }

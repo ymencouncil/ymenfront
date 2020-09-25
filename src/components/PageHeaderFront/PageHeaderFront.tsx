@@ -35,7 +35,8 @@ const StyledPageHeaderFront = styled.div`
 `
 
 const StyledTitle = styled.h1`
-  font-family: 'eras-font';
+  font-family: 'eras-book-font';
+  font-family: 'eras-book-font';
   letter-spacing: 5px;
   color: ${(props) => props.theme.color.grey[1001]};
   font-size: 50px;
@@ -48,7 +49,8 @@ const StyledTitle = styled.h1`
 `
 
 const StyledSubtitle = styled.h3`
-  font-family: 'eras-font';
+  /* font-family: "eras-font" */
+  font-family: 'eras-book-font';
   color: ${(props) => props.theme.color.grey[1000]};
   font-size: 25px;
   font-weight: 400;
