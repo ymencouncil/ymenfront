@@ -51,6 +51,7 @@ const StyledTitle = styled.h1`
   font-weight: 700;
   margin: 0;
   padding: 0;
+  text-align: center;
 `
 
 const StyledSubtitle = styled.h3`
