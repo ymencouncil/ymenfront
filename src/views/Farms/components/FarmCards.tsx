@@ -59,7 +59,7 @@ const createFarmCardRows = (farms: Farm[], stakedValue: StakedValue[]) => {
 
   const BLOCKS_PER_YEAR = new BigNumber(2336000)
   // TODO: After block height xxxx, SUSHI_PER_BLOCK = 100;
-  const SASHIMI_PER_BLOCK = new BigNumber(1000)
+  const SASHIMI_PER_BLOCK = new BigNumber(100)
 
   let ethValueInSashimi = new BigNumber(0)
   let ethValueInSashimiNoWeight = new BigNumber(0)
