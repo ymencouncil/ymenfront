@@ -15,7 +15,6 @@ import Farms from './views/Farms'
 import Home from './views/Home'
 import Stake from './views/Stake'
 import Fonts from './assets/fonts'
-import Nft from './views/Nft'
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -39,9 +38,6 @@ const App: React.FC = () => {
           </Route>
           <Route path="/farms">
             <Farms />
-          </Route>
-          <Route path="/nft">
-            <Nft />
           </Route>
           <Route path="/staking">
             <Stake />
