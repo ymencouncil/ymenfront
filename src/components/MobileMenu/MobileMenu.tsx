@@ -17,22 +17,27 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
           <StyledLink exact activeClassName="active" to="/" onClick={onDismiss}>
             Home
           </StyledLink>
-          <StyledLink
-            exact
-            activeClassName="active"
-            to="/farms"
+          <StyledLink exact activeClassName="active" to="/farms" onClick={onDismiss}>
+            Mutants
+          </StyledLink>
+          <StyledLink exact activeClassName="active" to="/nft" onClick={onDismiss}>
+            NFT
+          </StyledLink>
+          <StyledAbsoluteLink
+            href="https://snapshot.page/#/ymen"
+            target="_blank"
             onClick={onDismiss}
           >
-            Farms
-          </StyledLink>
-          <StyledLink
-            exact
-            activeClassName="active"
-            to="/staking"
+            Governance
+          </StyledAbsoluteLink>
+          {/* <StyledText>Team</StyledText> */}
+          <StyledAbsoluteLink
+            href="https://medium.com/@realymenfinance/y-men-finance-yield-farming-2-0-79033e2e12b7"
+            target="_blank"
             onClick={onDismiss}
           >
-            Staking
-          </StyledLink>
+            About
+          </StyledAbsoluteLink>
         </StyledMobileMenu>
       </StyledMobileMenuWrapper>
     )
@@ -71,7 +76,7 @@ const slideIn = keyframes`
 
 const StyledMobileMenu = styled.div`
   animation: ${slideIn} 0.3s forwards ease-out;
-  background-color: ${(props) => props.theme.color.grey[200]};
+  background-color: ${(props) => props.theme.color.blue[1000]};
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -85,7 +90,24 @@ const StyledMobileMenu = styled.div`
 
 const StyledLink = styled(NavLink)`
   box-sizing: border-box;
-  color: ${(props) => props.theme.color.grey[1000]};
+  color: ${(props) => props.theme.color.white};
+  font-size: 24px;
+  font-weight: 700;
+  padding: ${(props) => props.theme.spacing[3]}px
+    ${(props) => props.theme.spacing[4]}px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  &:hover {
+    color: ${(props) => props.theme.color.grey[1100]};
+  }
+  &.active {
+    color: ${(props) => props.theme.color.grey[1100]};
+  }
+`
+const StyledAbsoluteLink = styled.a`
+  box-sizing: border-box;
+  color: ${(props) => props.theme.color.white};
   font-size: 24px;
   font-weight: 700;
   padding: ${(props) => props.theme.spacing[3]}px

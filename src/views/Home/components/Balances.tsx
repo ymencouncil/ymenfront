@@ -145,9 +145,8 @@ const FootnoteValueRed = styled.div`
 `
 
 const StyledWrapper = styled.div`
-  align-items: center;
   display: flex;
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     width: 100%;
     flex-flow: column nowrap;
     align-items: stretch;

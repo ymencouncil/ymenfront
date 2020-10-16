@@ -9,13 +9,15 @@ const Page: React.FC = ({ children }) => (
   </StyledPage>
 )
 
-const StyledPage = styled.div``
+const StyledPage = styled.div`
+`
 
 const StyledMain = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - ${(props) => props.theme.topBarSize * 2}px);
+  min-height: calc(100vh - ${(props) => props.theme.topBarSize}px);
+  padding-top: ${(props) => props.theme.topBarSize}px;
 `
 
 export default Page
