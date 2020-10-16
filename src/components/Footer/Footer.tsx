@@ -22,7 +22,7 @@ const StyledFooter = styled.footer`
 `
 const StyledLogoWrapper = styled.div`
   margin-left: 150px;
-  @media (max-width: 400px) {
+  @media (max-width: 1000px) {
     width: auto;
     margin: 0;
   }
@@ -34,7 +34,7 @@ const StyledFooterInner = styled.div`
   height: ${(props) => props.theme.topBarSize}px;
   max-width: ${(props) => props.theme.siteWidth}px;
   width: 100%;
-  @media (max-width: 400px) {
+  @media (max-width: 1000px) {
     width: auto;
     height: ${(props) => 3 * props.theme.topBarSize}px;
     margin: 0;

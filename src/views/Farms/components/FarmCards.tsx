@@ -332,7 +332,7 @@ const MultiPlier = styled.div`
   top: 0;
   border-radius: 100%;
 `
-const StyledCardAccent = styled.div`
+export const StyledCardAccent = styled.div`
   background: linear-gradient(
     45deg,
     rgba(255, 0, 0, 1) 0%,

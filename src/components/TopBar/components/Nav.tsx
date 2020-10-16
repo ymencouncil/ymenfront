@@ -2,7 +2,11 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Nav: React.FC = () => {
+interface NavProps {
+  onPresentMobileMenu: () => void
+}
+
+const Nav: React.FC<NavProps> = ({ onPresentMobileMenu }) => {
   return (
     <StyledNav>
       <StyledLink exact activeClassName="active" to="/">
@@ -31,6 +35,9 @@ const Nav: React.FC = () => {
 const StyledNav = styled.nav`
   align-items: center;
   display: flex;
+  @media (max-width: 800px) {
+    display: none;
+  }
 `
 
 const StyledLink = styled(NavLink)`

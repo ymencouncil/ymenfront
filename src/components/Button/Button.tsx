@@ -137,9 +137,12 @@ const StyledButton = styled.button<StyledButtonProps>`
   padding-right: ${(props) => props.padding}px;
   pointer-events: ${(props) => (!props.disabled ? undefined : 'none')};
   width: 100%;
-  // &:hover {
-  //   background-color: ${(props) => props.theme.color.grey[1150]};
-  // }
+  &:hover {
+    background-color: ${(props) =>
+      props.backgroundColor === props.theme.color.blue[200]
+        ? props.theme.color.blue[200]
+        : props.theme.color.grey[1150]};
+  }
 `
 
 const StyledLink = styled(Link)`
