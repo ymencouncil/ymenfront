@@ -69,14 +69,14 @@ const StyledNav = styled.nav`
   align-items: center;
   display: flex;
   margin-right: 150px;
-  @media (max-width: 400px) {
+  @media (max-width: 1000px) {
     width: auto;
     margin: 0;
   }
 `
 const FlexDiv = styled.div`
   display: flex;
-  @media (max-width: 400px) {
+  @media (max-width: 1000px) {
     flex-direction: column;
   }
 `
@@ -99,6 +99,9 @@ const StyledLinkIcon = styled.a`
   max-width: 115px;
   &:hover {
     color: ${(props) => props.theme.color.grey[1000]};
+  }
+  @media (max-width: 1000px) {
+    margin: 5px 0;
   }
 `
 

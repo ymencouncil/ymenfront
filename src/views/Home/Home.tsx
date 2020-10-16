@@ -47,7 +47,7 @@ const StyledParent = styled.div`
   width: calc(100% - 100px);
   padding: 0 50px;
   min-height: calc(100vh - ${(props) => props.theme.topBarSize * 2}px);
-  @media (max-width: 400px) {
+  @media (max-width: 800px) {
     width: auto;
     padding: 0;
     flex-direction: column;
@@ -59,7 +59,7 @@ const StyledChild = styled.div`
   flex-direction: column;
   width: 50%;
   align-self: center;
-  @media (max-width: 400px) {
+  @media (max-width: 800px) {
     width: auto;
     margin-top: 50px;
   }
@@ -68,14 +68,14 @@ const StyledChild = styled.div`
 const StyledChildImage = styled.img`
   max-height: calc(50vh - ${(props) => props.theme.topBarSize}px);
   min-height: 230px;
-  @media (max-width: 400px) {
+  @media (max-width: 800px) {
     display: none;
   }
 `
 const StyledButtons = styled.div`
   display: flex;
   align-self: flex-start;
-  @media (max-width: 400px) {
+  @media (max-width: 800px) {
     width: auto;
     flex-direction: column;
     button {
