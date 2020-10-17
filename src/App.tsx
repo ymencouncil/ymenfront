@@ -16,6 +16,7 @@ import Home from './views/Home'
 import Stake from './views/Stake'
 import Fonts from './assets/fonts'
 import Nft from './views/Nft'
+import NftPromoModal from './components/NftPromoModal'
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -29,8 +30,8 @@ const App: React.FC = () => {
   }, [setMobileMenu])
 
   return (
-    <Providers>
-      <Router>
+    <Router>
+      <Providers>
         <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
         <Switch>
@@ -47,9 +48,10 @@ const App: React.FC = () => {
             <Stake />
           </Route>
         </Switch>
-      </Router>
-      <Disclaimer />
-    </Providers>
+        <NftPromo />
+        <Disclaimer />
+      </Providers>
+    </Router>
   )
 }
 
@@ -88,6 +90,25 @@ const Disclaimer: React.FC = () => {
     const seenDisclaimer = true // localStorage.getItem('disclaimer')
     if (!seenDisclaimer) {
       onPresentDisclaimerModal()
+    }
+  }, [])
+
+  return <div />
+}
+
+const NftPromo: React.FC = () => {
+  const [onPresentNftPromoModal] = useModal(<NftPromoModal />)
+
+  useEffect(() => {
+    const showPromo =
+      !localStorage.getItem('NftPromo') ||
+      Date.now() - +localStorage.getItem('NftPromo') > 604000000
+
+    if (showPromo) {
+      localStorage.setItem('NftPromo', '' + Date.now())
+      setTimeout(() => {
+        onPresentNftPromoModal()
+      }, 3000)
     }
   }, [])
 

@@ -80,10 +80,10 @@ const createFarmCardRows = (farms: Farm[], stakedValue: StakedValue[]) => {
         ...stakedValue[i],
         apy: stakedValue[i]
           ? sushiPrice
-              .times(SASHIMI_PER_BLOCK)
-              .times(BLOCKS_PER_YEAR)
-              .times(stakedValue[i].poolWeight)
-              .div(stakedValue[i].totalWethValue)
+            .times(SASHIMI_PER_BLOCK)
+            .times(BLOCKS_PER_YEAR)
+            .times(stakedValue[i].poolWeight)
+            .div(stakedValue[i].totalWethValue)
           : null,
       }
 
@@ -103,10 +103,10 @@ const createFarmCardRows = (farms: Farm[], stakedValue: StakedValue[]) => {
           ...stakedValue[i],
           apy: stakedValue[i]
             ? sushiPrice
-                .times(SASHIMI_PER_BLOCK)
-                .times(BLOCKS_PER_YEAR)
-                .times(stakedValue[i].poolWeight)
-                .div(sashimiElfWethValue)
+              .times(SASHIMI_PER_BLOCK)
+              .times(BLOCKS_PER_YEAR)
+              .times(stakedValue[i].poolWeight)
+              .div(sashimiElfWethValue)
             : null,
         }
       }
@@ -159,6 +159,7 @@ const FarmCards: React.FC = () => {
       {!!rows[0].length ? (
         rows.map((farmRow, i) => (
           <StyledRow key={i}>
+            {i === 1 ? <RetiredCards>Deadpools</RetiredCards> : null}
             {farmRow.map((farm, j) => (
               <React.Fragment key={j}>
                 <FarmCard farm={farm} />
@@ -168,10 +169,10 @@ const FarmCards: React.FC = () => {
           </StyledRow>
         ))
       ) : (
-        <StyledLoadingWrapper>
-          <Loader text="Gathering the Mutants ..." />
-        </StyledLoadingWrapper>
-      )}
+          <StyledLoadingWrapper>
+            <Loader text="Gathering the Mutants ..." />
+          </StyledLoadingWrapper>
+        )}
     </StyledCards>
   )
 }
@@ -220,8 +221,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   return (
     <StyledCardWrapper>
       {farm.tokenSymbol === 'YMEN' && <StyledCardAccent />}
-      {farm.tokenSymbol === 'MUTANT' && <StyledCardAccent />}
       <Card>
+        {farm.tokenSymbol === 'MUTANT' && <StyledCardAccent />}
         <CardContent>
           <StyledContent>
             <CardIcon>{farm.icon}</CardIcon>
@@ -268,10 +269,10 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               <span>
                 {farm.apy
                   ? `${farm.apy
-                      .times(new BigNumber(100))
-                      .toNumber()
-                      .toLocaleString('en-US')
-                      .slice(0, -1)}%`
+                    .times(new BigNumber(100))
+                    .toNumber()
+                    .toLocaleString('en-US')
+                    .slice(0, -1)}%`
                   : 'Loading ...'}
               </span>
               {/* <span>
@@ -315,6 +316,18 @@ const ValueETH = styled.div`
   padding: 0;
   text-align: center;
   padding-bottom: ${(props) => props.theme.spacing[5]}px;
+`
+
+const RetiredCards = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: ${(props) => props.theme.color.grey[1100]};
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+  padding-top: ${(props) => props.theme.spacing[3]}px;
+  padding-bottom: ${(props) => props.theme.spacing[4]}px;
 `
 
 const ButtonContainer = styled.div`
