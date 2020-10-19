@@ -114,7 +114,7 @@ const createFarmCardRows = (farms: Farm[], stakedValue: StakedValue[]) => {
       const newFarmRows = [...farmRows]
 
       if (
-        (newFarmRows.length === 1 && newFarmRows[0].length === 2) ||
+        (newFarmRows.length === 1 && newFarmRows[0].length === 3) ||
         newFarmRows[newFarmRows.length - 1].length === 3
       ) {
         newFarmRows.push([farmWithStakedValue])
@@ -221,8 +221,9 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   return (
     <StyledCardWrapper>
       {farm.tokenSymbol === 'YMEN' && <StyledCardAccent />}
+      {farm.tokenSymbol === 'MUTANT' && <StyledCardAccent />}
+      {farm.tokenSymbol === 'AHF' && <StyledCardAccent />}
       <Card>
-        {farm.tokenSymbol === 'MUTANT' && <StyledCardAccent />}
         <CardContent>
           <StyledContent>
             <CardIcon>{farm.icon}</CardIcon>
@@ -234,6 +235,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             {farm.tokenSymbol === 'MUTANT' && (
               <MultiPlier>
                 <img width="100%" src={icon8x} />
+              </MultiPlier>
+            )}
+            {farm.tokenSymbol === 'AHF' && (
+              <MultiPlier>
+                <img width="100%" src={icon4x} />
               </MultiPlier>
             )}
             <StyledTitle>{farm.name}</StyledTitle>

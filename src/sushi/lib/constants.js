@@ -9,6 +9,7 @@ import Mutant from '../../assets/img/mutant.png';
 import Mystq from '../../assets/img/mystq.png'
 import Rogue from '../../assets/img/rogue.png'
 import Storm from '../../assets/img/storm.png'
+import Shades from '../../assets/img/shades.png'
 import Wolverine from '../../assets/img/wolverine.png';
 export const SUBTRACT_GAS_LIMIT = 100000
 
@@ -79,6 +80,7 @@ UNI-V2 LP Address on mainnet for reference
 10 AMPL 0xc5be99a02c6857f9eac67bbce58df5572498f40c
 11 YFI  0x2fdbadf3c4d5a8666bc06645b8358ab803996e28
 12 SUSHI 0xce84867c3c02b05dc570d0135103d3fb9cc19433
+13 AHF  0x80719b1b65cc804eb60d9754b84ac6dd242a1fff
 */
 
 
@@ -98,7 +100,7 @@ TOKEN addresses on mainnet for reference
 10 AMPL 0xd46ba6d942050d489dbd938a2c909a5d5039a161
 11 YFI  0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e
 12 YMEN 0xd0c59798f986d333554688cd667033d469c2398e
-13
+13 AHF  0xd6d3608f2d770d0a8d0da62d7afe21ea1da86d9c
 14
 15
 16
@@ -149,6 +151,21 @@ export const supportedPools = [
     icon: <img width='95px' src={Mutant} />,
     pool: '8x Multiplier!',
     uniswapLPUrl: 'https://uniswap.info/pair/0xb5ca2CF922208e4C6051d97cD49Bc5EF533d633a',
+  },
+  {
+    pid: 10,
+    lpAddresses: {
+      1: '0x80719b1b65cc804eb60d9754b84ac6dd242a1fff',
+    },
+    tokenAddresses: {
+      1: '0xd6d3608f2d770d0a8d0da62d7afe21ea1da86d9c',
+    },
+    name: 'Project Shades',
+    symbol: 'YMEN-AHF UNI-V2 LP',
+    tokenSymbol: 'AHF',
+    icon: <img width='55px' src={Shades} />,
+    pool: '4x Multiplier!',
+    uniswapLPUrl: 'https://info.uniswap.org/pair/0x80719b1b65cc804eb60d9754b84ac6dd242a1fff',
   },
   {
     pid: 0,
