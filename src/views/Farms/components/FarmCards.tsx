@@ -39,7 +39,6 @@ const createFarmCardRows = (farms: Farm[], stakedValue: StakedValue[]) => {
       ? stakedValue[sushiIndex].tokenPriceInWeth
       : new BigNumber(0)
 
-  console.log(sushiPrice.toNumber())
   sushiPrice =
     sushiIndex >= 0 && stakedValue[sushiIndex]
       ? stakedValue[sushiIndex].tokenPriceInWeth.div(mutantPriceInYmen)
@@ -66,7 +65,7 @@ const createFarmCardRows = (farms: Farm[], stakedValue: StakedValue[]) => {
   const rows = farms.reduce<FarmWithStakedValue[][]>(
     (farmRows, farm, i) => {
       // TODO: Better code to get weth value of tokenNotEth-tokenNotEth
-      if (stakedValue[i] && farm.pid !== 10) {
+      if (stakedValue[i] && farm.pid !== 11) {
         ethValueInSashimi = ethValueInSashimi.plus(
           stakedValue[i].poolWeight.times(stakedValue[i].totalWethValue),
         )
@@ -110,6 +109,30 @@ const createFarmCardRows = (farms: Farm[], stakedValue: StakedValue[]) => {
             : null,
         }
       }
+
+      if (
+        stakedValue[i] &&
+        farm.pid === 10 &&
+        stakedValue[i].totalWethValue.toNumber() === 0
+      ) {
+        const sashimiElfWethValue = stakedValue[i].tokenAmount
+          .times(new BigNumber(1))
+        ethValueInSashimiNoWeight = ethValueInSashimiNoWeight.plus(
+          sashimiElfWethValue,
+        )
+        farmWithStakedValue = {
+          ...farm,
+          ...stakedValue[i],
+          apy: stakedValue[i]
+            ? sushiPrice
+              .times(SASHIMI_PER_BLOCK)
+              .times(BLOCKS_PER_YEAR)
+              .times(stakedValue[i].poolWeight)
+              .div(sashimiElfWethValue)
+            : null,
+        }
+      }
+
 
       const newFarmRows = [...farmRows]
 
