@@ -21,6 +21,7 @@ import {
   getMasterChefContract,
 } from '../../../sushi/utils'
 import { bnToDec } from '../../../utils'
+import icon10x from '../../../assets/img/icon10x.png'
 import icon8x from '../../../assets/img/icon8x.png'
 import icon4x from '../../../assets/img/icon4x.png'
 import icon2x from '../../../assets/img/icon2x.png'
@@ -211,7 +212,7 @@ const FarmCards: React.FC = () => {
             {farmRow.map((farm, j) => (
               <React.Fragment key={j}>
                 <FarmCard farm={farm} />
-                {(j === 0 || j === 1) && <StyledSpacer />}
+                {farm.tokenSymbol != 'CORD' &&  <StyledSpacer />}
               </React.Fragment>
             ))}
           </StyledRow>
@@ -283,7 +284,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             )}
             {farm.tokenSymbol === 'MUTANT' && (
               <MultiPlier>
-                <img width="100%" src={icon8x} />
+                <img width="100%" src={icon10x} />
               </MultiPlier>
             )}
             {farm.tokenSymbol === 'AHF' && (

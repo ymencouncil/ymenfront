@@ -151,7 +151,7 @@ export const supportedPools = [
     symbol: 'MUTANT-YMEN UNI-V2 LP',
     tokenSymbol: 'MUTANT',
     icon: <img width='95px' src={Mutant} />,
-    pool: '8x Multiplier!',
+    pool: '10x Multiplier!',
     uniswapLPUrl: 'https://uniswap.info/pair/0xb5ca2CF922208e4C6051d97cD49Bc5EF533d633a',
   },
   {
