@@ -23,6 +23,7 @@ import {
 import { bnToDec } from '../../../utils'
 import icon8x from '../../../assets/img/icon8x.png'
 import icon4x from '../../../assets/img/icon4x.png'
+import icon2x from '../../../assets/img/icon2x.png'
 interface FarmWithStakedValue extends Farm, StakedValue {
   apy: BigNumber
 }
@@ -65,7 +66,7 @@ const createFarmCardRows = (farms: Farm[], stakedValue: StakedValue[]) => {
   const rows = farms.reduce<FarmWithStakedValue[][]>(
     (farmRows, farm, i) => {
       // TODO: Better code to get weth value of tokenNotEth-tokenNotEth
-      if (stakedValue[i] && farm.pid !== 11) {
+      if (stakedValue[i] && farm.pid !== 12) {
         ethValueInSashimi = ethValueInSashimi.plus(
           stakedValue[i].poolWeight.times(stakedValue[i].totalWethValue),
         )
@@ -133,11 +134,35 @@ const createFarmCardRows = (farms: Farm[], stakedValue: StakedValue[]) => {
         }
       }
 
+      if (
+        stakedValue[i] &&
+        farm.pid === 11 &&
+        stakedValue[i].totalWethValue.toNumber() === 0
+      ) {
+        const sashimiElfWethValue = stakedValue[i].tokenAmount
+          .times(new BigNumber(1))
+        ethValueInSashimiNoWeight = ethValueInSashimiNoWeight.plus(
+          sashimiElfWethValue,
+        )
+        farmWithStakedValue = {
+          ...farm,
+          ...stakedValue[i],
+          apy: stakedValue[i]
+            ? sushiPrice
+              .times(SASHIMI_PER_BLOCK)
+              .times(BLOCKS_PER_YEAR)
+              .times(stakedValue[i].poolWeight)
+              .div(sashimiElfWethValue)
+            : null,
+        }
+      }
+
 
       const newFarmRows = [...farmRows]
 
       if (
         (newFarmRows.length === 1 && newFarmRows[0].length === 3) ||
+        (newFarmRows.length === 2 && newFarmRows[1].length === 1) ||
         newFarmRows[newFarmRows.length - 1].length === 3
       ) {
         newFarmRows.push([farmWithStakedValue])
@@ -182,7 +207,7 @@ const FarmCards: React.FC = () => {
       {!!rows[0].length ? (
         rows.map((farmRow, i) => (
           <StyledRow key={i}>
-            {i === 1 ? <RetiredCards>Deadpools</RetiredCards> : null}
+            {i === 2 ? <RetiredCards>Deadpools</RetiredCards> : null}
             {farmRow.map((farm, j) => (
               <React.Fragment key={j}>
                 <FarmCard farm={farm} />
@@ -246,6 +271,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       {farm.tokenSymbol === 'YMEN' && <StyledCardAccent />}
       {farm.tokenSymbol === 'MUTANT' && <StyledCardAccent />}
       {farm.tokenSymbol === 'AHF' && <StyledCardAccent />}
+      {farm.tokenSymbol === 'CORD' && <StyledCardAccent />}
       <Card>
         <CardContent>
           <StyledContent>
@@ -263,6 +289,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             {farm.tokenSymbol === 'AHF' && (
               <MultiPlier>
                 <img width="100%" src={icon4x} />
+              </MultiPlier>
+            )}
+             {farm.tokenSymbol === 'CORD' && (
+              <MultiPlier>
+                <img width="100%" src={icon2x} />
               </MultiPlier>
             )}
             <StyledTitle>{farm.name}</StyledTitle>

@@ -10,6 +10,7 @@ import Mystq from '../../assets/img/mystq.png'
 import Rogue from '../../assets/img/rogue.png'
 import Storm from '../../assets/img/storm.png'
 import Shades from '../../assets/img/shades.png'
+import Cord from '../../assets/img/cord.png'
 import Wolverine from '../../assets/img/wolverine.png';
 export const SUBTRACT_GAS_LIMIT = 100000
 
@@ -81,6 +82,7 @@ UNI-V2 LP Address on mainnet for reference
 11 YFI  0x2fdbadf3c4d5a8666bc06645b8358ab803996e28
 12 SUSHI 0xce84867c3c02b05dc570d0135103d3fb9cc19433
 13 AHF  0x80719b1b65cc804eb60d9754b84ac6dd242a1fff
+14 CORD 0x67a491b54e136dbf38f3f09841e8611c54140ec0
 */
 
 
@@ -101,7 +103,7 @@ TOKEN addresses on mainnet for reference
 11 YFI  0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e
 12 YMEN 0xd0c59798f986d333554688cd667033d469c2398e
 13 AHF  0xd6d3608f2d770d0a8d0da62d7afe21ea1da86d9c
-14
+14 CORD 0x74fb9da15d4f9a34d8c825798da0fa5c400dade1
 15
 16
 17 
@@ -166,6 +168,21 @@ export const supportedPools = [
     icon: <img width='55px' src={Shades} />,
     pool: '4x Multiplier!',
     uniswapLPUrl: 'https://info.uniswap.org/pair/0x80719b1b65cc804eb60d9754b84ac6dd242a1fff',
+  },
+  {
+    pid: 11,
+    lpAddresses: {
+      1: '0x67a491b54e136dbf38f3f09841e8611c54140ec0',
+    },
+    tokenAddresses: {
+      1: '0x74fb9da15d4f9a34d8c825798da0fa5c400dade1',
+    },
+    name: 'Cord Reviver',
+    symbol: 'CORD-YMEN UNI-V2 LP',
+    tokenSymbol: 'CORD',
+    icon: <img width='65px' src={Cord} />,
+    pool: '2x Multiplier!',
+    uniswapLPUrl: 'https://info.uniswap.org/pair/0x67a491b54e136dbf38f3f09841e8611c54140ec0',
   },
   {
     pid: 0,
