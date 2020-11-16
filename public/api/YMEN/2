@@ -1,0 +1,32 @@
+{
+    "pool": {
+    "name": "root",
+        "points": 1
+    },
+    "external_url": "https://ymen.finance/api/YMEN/2",
+    "image": "https://ymen.finance/nftImages/REKTWatcher.jpg",
+    "name": "REKT Watcher",
+    "description": "Tasked in early 2018 by his species to travel to Earth and vigilantly study and report upon a nascent financial market known as crypto, Rekt began to transmogrify and absorb extreme human characteristics such as intense rage, remorse, self-loathing, and anguish. As such he is now impervious to physical pain.",
+    "attributes": [
+        {
+            "trait_type": "Set",
+            "value": "Comic Art"
+        },
+        {
+            "trait_type": "Rarity",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Artist",
+            "value": "@requiemforadreammmm"
+        },
+        {
+            "trait_type": "Type",
+            "value": "Mutant"
+        },
+        {
+            "trait_type": "Max Supply",
+            "value": "20"
+        }
+    ]
+}

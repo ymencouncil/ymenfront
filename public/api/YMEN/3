@@ -1,0 +1,32 @@
+{
+    "pool": {
+    "name": "root",
+        "points": 1
+    },
+    "external_url": "https://ymen.finance/api/YMEN/3",
+    "image": "https://ymen.finance/nftImages/Ylocke.jpg",
+    "name": "Ylocke",
+    "description": "Constantly haunted by prescient visions of emboldened investors getting rekt, Ylocke's telekinetic powers sense great dangers when known shillers lurk in dangerous corners. She defends her allies fiercely with her psychic energy.",
+    "attributes": [
+        {
+            "trait_type": "Set",
+            "value": "Comic Art"
+        },
+        {
+            "trait_type": "Rarity",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Artist",
+            "value": "@requiemforadreammmm"
+        },
+        {
+            "trait_type": "Type",
+            "value": "Mutant"
+        },
+        {
+            "trait_type": "Max Supply",
+            "value": "20"
+        }
+    ]
+}

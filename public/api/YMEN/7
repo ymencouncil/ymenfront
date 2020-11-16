@@ -1,0 +1,32 @@
+{
+    "pool": {
+    "name": "root",
+        "points": 1
+    },
+    "external_url": "https://ymen.finance/api/YMEN/7",
+    "image": "https://ymen.finance/nftImages/RektScream.jpg",
+    "name": "Rekt Scream",
+    "description": "The anxiety of the crypto trader. Existential crisis and the questioning of life’s true meaning has nothing on the pain the crypto trader faces from minute to minute. Can it be true, how is it possible? Prepare to lose everything except the value of this NFT. Only through pain can we find true redemption.",
+    "attributes": [
+        {
+            "trait_type": "Set",
+            "value": "Pixel Art"
+        },
+        {
+            "trait_type": "Rarity",
+            "value": "epic"
+        },
+        {
+            "trait_type": "Artist",
+            "value": "@Lexfazio"
+        },
+        {
+            "trait_type": "Type",
+            "value": "Pixel Mutant"
+        },
+        {
+            "trait_type": "Max Supply",
+            "value": "5"
+        }
+    ]
+}

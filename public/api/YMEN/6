@@ -1,0 +1,32 @@
+{
+    "pool": {
+    "name": "root",
+        "points": 1
+    },
+    "external_url": "https://ymen.finance/api/YMEN/6",
+    "image": "https://ymen.finance/nftImages/PEPEHulk.jpg",
+    "name": "PEPE Hulk",
+    "description": "When rugged from a convincing 4Chan 100x call, mild-mannered Pepe becomes enraged and takes the form of a powerful uncontrollable mutant, unable to feel empathy for others. His unparalleled strength is channeled towards exacting his rightful retribution on those who seek to steal his profits.",
+    "attributes": [
+        {
+            "trait_type": "Set",
+            "value": "Comic Art"
+        },
+        {
+            "trait_type": "Rarity",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Artist",
+            "value": "@requiemforadreammmm"
+        },
+        {
+            "trait_type": "Type",
+            "value": "Mutant"
+        },
+        {
+            "trait_type": "Max Supply",
+            "value": "5"
+        }
+    ]
+}

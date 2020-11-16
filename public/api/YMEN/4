@@ -1,0 +1,32 @@
+{
+    "pool": {
+    "name": "root",
+        "points": 1
+    },
+    "external_url": "https://ymen.finance/api/YMEN/4",
+    "image": "https://ymen.finance/nftImages/TheBogdaspiracy.png",
+    "name": "The Bogdaspiracy",
+    "description": "la danse du marionnettiste. Vitalik, the creator of Ethereum, creator of all that is swappable and DEFI-tastic, is leading us to riches beyond the wage-slave future, we all feared. The main net comes online in Nov 2020 but is it all that it seems? Is there something sinister going on? Are the Bogdanoffs controlling Vitalik & the market for their own gain, will they PAMP IT & DAMP IT. Buy the NFT and protect yourself!",
+    "attributes": [
+        {
+            "trait_type": "Set",
+            "value": "Pixel Art"
+        },
+        {
+            "trait_type": "Rarity",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Artist",
+            "value": "@LexFazio"
+        },
+        {
+            "trait_type": "Type",
+            "value": "Pixel Mutant"
+        },
+        {
+            "trait_type": "Max Supply",
+            "value": "5"
+        }
+    ]
+}
