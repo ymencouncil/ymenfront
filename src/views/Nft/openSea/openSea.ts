@@ -1,7 +1,7 @@
 import { OpenSeaAsset, OpenSeaAssetRequest } from './types'
 
 const BASE_URL = 'https://api.opensea.io/api/v1/assets/'
-const CONTRACT_ADDRESS = '0x6f1e642f460447b012fc6bff215a198b3075e91e'
+const CONTRACT_ADDRESS = '0xa9f4bfe3fc4376478ed3cc7380c08d1646b1f0b8'
 
 export const fetchCards = (
   req: OpenSeaAssetRequest,
