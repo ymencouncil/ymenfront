@@ -1,0 +1,32 @@
+{
+    "pool": {
+    "name": "root",
+        "points": 1
+    },
+    "external_url": "https://ymen.finance/api/YMEN/1",
+    "image": "https://ymen.finance/nftImages/ProfessorY.jpg",
+    "name": "Professor Y",
+    "description": "Much responsibility befalls the physically frail leader of the Ymen. Constantly at odds with the toxic mindset of bad actors, Professor Y utilizes his supreme mind control to convince his followers to focus on the tech, and not fall foul of incompetent coders and deceitful promises.",
+    "attributes": [
+        {
+            "trait_type": "Set",
+            "value": "Comic Art"
+        },
+        {
+            "trait_type": "Rarity",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Artist",
+            "value": "@requiemforadreammmm"
+        },
+        {
+            "trait_type": "Type",
+            "value": "Mutant"
+        },
+        {
+            "trait_type": "Max Supply",
+            "value": "20"
+        }
+    ]
+}
