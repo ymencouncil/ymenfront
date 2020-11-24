@@ -11,6 +11,7 @@ export interface OpenSeaAsset extends OpenSeaCard {
 export interface OpenSeaCard {
   image_url: string
   permalink: string
+  token_id: string
 }
 
 export type SortedCards = {

@@ -11,7 +11,8 @@ interface ButtonProps {
   size?: 'sm' | 'md' | 'lg'
   text?: string
   to?: string
-  variant?: 'default' | 'secondary' | 'tertiary' | 'primary'
+  variant?: 'default' | 'secondary' | 'tertiary' | 'primary',
+  style?: React.CSSProperties,
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -23,6 +24,7 @@ const Button: React.FC<ButtonProps> = ({
   text,
   to,
   variant,
+  style,
 }) => {
   const { color, spacing } = useContext(ThemeContext)
 
@@ -101,6 +103,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       padding={buttonPadding}
       size={buttonSize}
+      style={style}
     >
       {children}
       {ButtonChild}
