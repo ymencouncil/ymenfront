@@ -4,6 +4,8 @@ import MasterChefAbi from './abi/masterchef.json'
 import SushiAbi from './abi/sushi.json'
 import UNIV2PairAbi from './abi/uni_v2_lp.json'
 import WETHAbi from './abi/weth.json'
+import YmenMakerAbi from './abi/ymenMaker.json'
+import YmenStakingAbi from './abi/ymenStaking.json'
 import {
   contractAddresses,
   SUBTRACT_GAS_LIMIT,
@@ -24,6 +26,8 @@ export class Contracts {
     this.sushi = new this.web3.eth.Contract(SushiAbi)
     this.masterChef = new this.web3.eth.Contract(MasterChefAbi)
     this.weth = new this.web3.eth.Contract(WETHAbi)
+    this.ymenMaker = new this.web3.eth.Contract(YmenMakerAbi)
+    this.ymenStaking = new this.web3.eth.Contract(YmenStakingAbi)
 
     this.pools = supportedPools.map((pool) =>
       Object.assign(pool, {
@@ -48,6 +52,8 @@ export class Contracts {
     setProvider(this.sushi, contractAddresses.sushi[networkId])
     setProvider(this.masterChef, contractAddresses.masterChef[networkId])
     setProvider(this.weth, contractAddresses.weth[networkId])
+    setProvider(this.ymenMaker, contractAddresses.ymenMaker[networkId])
+    setProvider(this.ymenStaking, contractAddresses.ymenStaking[networkId])
 
     this.pools.forEach(
       ({ lpContract, lpAddress, tokenContract, tokenAddress }) => {
@@ -60,6 +66,8 @@ export class Contracts {
   setDefaultAccount(account) {
     this.sushi.options.from = account
     this.masterChef.options.from = account
+    this.ymenMaker.options.from = account
+    this.ymenStaking.options.from = account
   }
 
   async callContractFunction(method, options) {

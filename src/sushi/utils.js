@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { ethers } from 'ethers'
+import {ethers} from 'ethers'
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -19,6 +19,15 @@ export const getMasterChefAddress = (sushi) => {
 export const getSushiAddress = (sushi) => {
   return sushi && sushi.sushiAddress
 }
+
+export const getYmenMakerAddress = (sushi) => {
+  return sushi && sushi.ymenMakerAddress;
+}
+
+export const getYmenStakingAddress = (sushi) => {
+  return sushi && sushi.ymenStakingAddress;
+}
+
 export const getWethContract = (sushi) => {
   return sushi && sushi.contracts && sushi.contracts.weth
 }
@@ -28,6 +37,14 @@ export const getMasterChefContract = (sushi) => {
 }
 export const getSushiContract = (sushi) => {
   return sushi && sushi.contracts && sushi.contracts.sushi
+}
+
+export const getYmenMakerContract = (sushi) => {
+  return sushi && sushi.contracts && sushi.contracts.ymenMaker;
+}
+
+export const getYmenStakingContract = (sushi) => {
+  return sushi && sushi.contracts && sushi.contracts.ymenStaking;
 }
 
 export const getFarms = (sushi) => {
@@ -75,6 +92,10 @@ export const getPoolWeight = async (masterChefContract, pid) => {
 
 export const getEarned = async (masterChefContract, pid, account) => {
   return masterChefContract.methods.pendingMutant(pid, account).call()
+}
+
+export const getNftEarned = async (ymenStakingContract, account) => {
+  return new BigNumber(await ymenStakingContract.methods.pendingMutant(account).call()).div(new BigNumber(10).pow(18));
 }
 
 export const getEthToBtcValue = async () => await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd').then(res => res.json()).then(json => json.ethereum.usd);
@@ -200,6 +221,19 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
       return tx.transactionHash
     })
 }
+
+export const stakeNft = async (ymenStakingContract, account, nftIdList, nftAmountList) => {
+  return ymenStakingContract.methods.deposit(nftIdList, nftAmountList).send({from: account});
+}
+
+export const unstakeNft = async (ymenStakingContract, account, nftIdList, nftAmountList) => {
+  return ymenStakingContract.methods.withdraw(nftIdList, nftAmountList).send({from: account});
+}
+
+export const harvestNft = async (ymenStakingContract, account) => {
+  return ymenStakingContract.methods.harvest().send({from: account});
+}
+
 export const harvest = async (masterChefContract, pid, account) => {
   return masterChefContract.methods
     .deposit(pid, '0')
@@ -219,6 +253,36 @@ export const getStaked = async (masterChefContract, pid, account) => {
   } catch {
     return new BigNumber(0)
   }
+}
+
+export const getNftBalance = async (ymenMakerContract, account, nftIdList) => {
+  try {
+    return ymenMakerContract.methods.balanceOfBatch(nftIdList.map(() => account), nftIdList).call();
+  } catch {
+    return nftIdList.map(() => 0);
+  }
+}
+
+export const getNftStakedBalance = async (getYmenStakingContract, account, nftIdList) => {
+  try {
+    return getYmenStakingContract.methods.getBalances(account, nftIdList).call();
+  } catch {
+    return nftIdList.map(() => 0);
+  }
+}
+
+export const getNftApproval = async (ymenMakerContract, owner, operator) => {
+  try {
+    return ymenMakerContract.methods.isApprovedForAll(owner, operator).call();
+  } catch {
+    return false;
+  }
+}
+
+export const approveNft = async (ymenMakerContract, ymenStakingAddress, account) => {
+  return ymenMakerContract.methods
+      .setApprovalForAll(ymenStakingAddress, true)
+      .send({ from: account })
 }
 
 export const redeem = async (masterChefContract, account) => {
